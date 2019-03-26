@@ -1,0 +1,129 @@
+
+					var isLazyLoadActive = false;
+					var winBider = null;
+
+					if(typeof(crtCheck) == "undefined"){
+						var crtCheck = false;
+					}
+
+					var fljson = {"cpm":0.136875,"bider":"clickforce","tag":"var ct = function(){};var cu = \"\/\/ad.doublemax.net\/adserver\/c?p=8055:16521:46325:07be7339e3cfabce03fe2d1946be4825:3969&dest=https%3A%2F%2Fwww.volkswagentaiwan.com.tw%2Ftiguanallspace%2F%3Futm_source%3Dpmp%26utm_medium%3DPMP-Clickforce_300x250_2%26utm_campaign%3Dtiguan_1903\",iu = \"\/\/ad.doublemax.net\/adserver\/i?p=8055:16521:46325:07be7339e3cfabce03fe2d1946be4825:3969\", zi = \"8055\", w = 300, h = 250, ctv = \"\/\/cdn.doublemax.net\/z\/3969\/a1da3d1f129cc524abbdb46d77aca042\/index.html\";\n(function() { var j = document.createElement('script'); j.src = \"\/\/cdn.doublemax.net\/js\/tmp2\/3.js\"; document.body.appendChild(j); })();self.frameElement.width=300;self.frameElement.height=250;\r\n\t\t\t\tsetTimeout(function(){ \r\n\t\t\t\t\tparent.dmpSr_view_log('clickforce','8055:16521:46325:07be7339e3cfabce03fe2d1946be4825:3969','519415-XNdQ2O8Cf2I0sHddYF37UoKGAkMmw5XT');\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t}, 400);\r\n\t\t\tvar a = document.createElement('a');\r\n\t\t\ta.href = 'http:\/\/www.clickforce.com.tw';\r\n\t\t\ta.setAttribute('target', '_blank');\r\n\t\t\tdocument.body.appendChild(a);\r\n\t\t\tvar k = document.createElement('img');\r\n\t\t\tk.src = '\/\/cdn.doublemax.net\/cf.png';\r\n\t\t\tk.setAttribute('class', 'cflogo');\r\n\t\t\tk.setAttribute('style', 'position:absolute; bottom:0; right:0; z-index:9999999;');\r\n\t\t\tk.setAttribute('width', 23);\r\n\t\t\tk.setAttribute('height', 20);\r\n\t\t\ta.appendChild(k);\r\n\t\tsetTimeout(function(){ \r\n\r\n\t\t\tvar az = document.getElementsByTagName('a');\r\n\t\t\tif(az.length > 0){\r\n\t\t\t\tfor (var i = 0; i < az.length; i++) {\r\n\t\t\t\t\tif(az[i].href.indexOf('ad.doublemax')!=-1)\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\taz[i].addEventListener('click', function(){\r\n\t\t\t\t\t\t\tparent.dmpSr_click_log('clickforce','8055:16521:46325:07be7339e3cfabce03fe2d1946be4825:3969','519415-XNdQ2O8Cf2I0sHddYF37UoKGAkMmw5XT');\r\n\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t});\r\n\t\t\t\t\t}\t\t\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}, 950);\t\r\n\r\n\t\tct = function(){ \r\n\t\t\tparent.dmpSr_click_log('clickforce','8055:16521:46325:07be7339e3cfabce03fe2d1946be4825:3969','519415-XNdQ2O8Cf2I0sHddYF37UoKGAkMmw5XT');\r\n\t\t\t\t\r\n\t\t\t\r\n\r\n\t\t}\r\n\t\t\r\n\t\t\tvar p = \"8055:16521:46325:07be7339e3cfabce03fe2d1946be4825:3969\";\r\n\t\t\tvar setUpAvTrack = true;\r\n\t\t"};
+					var flWithTp = false;
+					var zoneLazyLoad = 1;
+					if(typeof(fbList) != "undefined"){
+						flWithTp = true;
+						fbList[fbList.length] = fljson;
+						setTimeout(function(){
+							crtCheck = true;
+						    var winCpm = 0;
+						    var thirdPartyCheckCpm = 0.216;
+						   	var thirdPartyConfig = {"criteo":{"price_compare":"0"},"innity":{"price_compare":"0"},"rtbHouse":{"price_compare":"0"}};
+						    for (var i = 0; i < fbList.length; i++) {
+						    	if(typeof(fbList[i]) != "undefined" && typeof(fbList[i].cpm)  != "undefined"){
+						    		if(fbList[i].cpm >= winCpm){
+						    			if(fbList[i].bider == "clickforce"){
+							    			winCpm = fbList[i].cpm;
+							    			winBider = fbList[i];
+						    			}else{
+						    				if(typeof(thirdPartyConfig[fbList[i].bider]) != "undefined"){
+						    					var tpCheckCpm = thirdPartyCheckCpm;
+
+						    					if(fbList[i].bider == "criteo"){
+						    						if(typeof(thirdPartyConfig["criteo"]["price_compare"]) != "undefined"){
+						    							if(thirdPartyConfig["criteo"]["price_compare"] == 0){
+						    								tpCheckCpm = 0;
+						    							}
+						    						}
+						    					}
+
+						    					if(fbList[i].bider == "xaxis"){
+													if(typeof(thirdPartyConfig["xaxis"]["price_compare"]) != "undefined"){
+														if(thirdPartyConfig["xaxis"]["price_compare"] == 0){
+															tpCheckCpm = 0;
+														}
+													}
+						    					}
+
+							    				if(fbList[i].cpm > tpCheckCpm){
+									    			winCpm = fbList[i].cpm;
+									    			winBider = fbList[i];
+							    				}	
+
+						    				}
+						    			}
+						    		}
+						    	}
+						    }
+				    		flWithTp = true;
+				    		setTimeout(function(){
+				    			if(typeof(avJsVer) == "undefined"){
+				    				crtCheck = true;
+				    				cfLazyload();
+				    			}
+				    		}, 2500);
+						}, 800);
+					}else{
+						winBider = fljson;
+			    		setTimeout(function(){		    			
+		    				crtCheck = true;
+		    				cfLazyload();
+			    		}, 350);							
+					}
+
+					function cfLazyload(){
+						if(crtCheck == true){				
+							if(isLazyLoadActive == false && winBider != null){
+								isLazyLoadActive = true;
+
+								if(winBider.bider == "clickforce"){
+									var script = document.createElement("script");
+									script.type = "text/javascript";
+									script.innerHTML = winBider.tag;
+									document.getElementsByTagName("head")[0].appendChild(script);
+								}else{
+									var k = document.createElement("iframe");
+									k.src = "about:blank";
+									k.setAttribute("class", "cftpif");
+									k.setAttribute("id", "cftpif");
+									k.setAttribute("width", 300);
+									k.setAttribute("height", 250);
+									k.setAttribute("scrolling", "no");
+									k.setAttribute("marginheight", "0");
+									k.setAttribute("marginwidth", "0");
+									k.setAttribute("allowtransparency", "true");
+									k.setAttribute("vspace", 0);
+									k.setAttribute("hspace", 0);
+									k.setAttribute("frameborder", 0);
+									document.body.appendChild(k);
+				                    k.contentDocument.write(winBider.tag);
+				                    k.contentDocument.close();															
+								}
+		
+
+							    if(typeof(avJsVer) != "undefined" && avJsVer == 1228){
+								    setTimeout(function(){
+								    	initActiveView();	
+								    }, 200);
+								}
+
+								if(flWithTp == true){
+									setTimeout(function(){
+										if(typeof(winBider.impTag)  != "undefined"){
+											parent.c_tag_mk("img", winBider.impTag + "&p=07be7339e3cfabce03fe2d1946be4825-8055&t=1553501140",false);
+										}
+									}, 500);
+								}
+							}
+						}else{
+							setTimeout(function(){
+								cfLazyload();
+							}, 300);							
+						}	
+					}
+
+
+				    self.frameElement.width = 300;
+					self.frameElement.height = 250;
+					var sc = document.createElement("script");
+					sc.src = "//cdn.doublemax.net/js/av.js";
+					document.body.appendChild(sc);
+				
